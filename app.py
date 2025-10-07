@@ -428,13 +428,13 @@ if not st.session_state['logged_in']:
     else:
         page_selection = st.sidebar.radio("Go to", ["Login", "Sign Up"], index=0 if st.session_state['page'] == 'Login' else 1)
         
+         # Update the session state based on the radio button selection
         if page_selection == "Login":
             st.session_state['page'] = 'Login'
-            login_page()
         elif page_selection == "Sign Up":
             st.session_state['page'] = 'SignUp'
-            signup_page()
-        # Ensure we display the selected page on initial load
+
+        # Render the page based on the single, updated session state value
         if st.session_state['page'] == 'Login':
             login_page()
         elif st.session_state['page'] == 'SignUp':
